@@ -24,6 +24,12 @@ elseif(APPLE)
     add_compile_definitions("SCP_PLATFORM_MAC")
 endif()
 
+# Clang specific options
+if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+    add_compile_options("-Wall" "-Wextra" "-Werror" "-fdiagnostics-absolute-paths")
+    add_link_options("-fdiagnostics-absolute-paths")
+endif()
+
 option(BUILD_SHARED_LIBS "Generated shared objects instead of archives" TRUE)
 
 include_directories(
