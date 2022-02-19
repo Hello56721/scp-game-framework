@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "name": "Hello56721 - Linux with Clang",
+            "intelliSenseMode": "linux-clang-x64",
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "includePath": [
+                "${workspaceFolder}/Project/include"
+            ]
+        }
+    ],
+    "version": 4
+}
