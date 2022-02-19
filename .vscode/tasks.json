@@ -3,7 +3,7 @@
     "tasks": [
         {
             "label": "Hello56721 - Build - Linux",
-            "command": "cmake --build Objects",
+            "command": "cmake --build Binaries",
             "type": "shell",
             "args": [],
             "problemMatcher": [
