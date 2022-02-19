@@ -15,6 +15,15 @@ else()
     set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/../Application/lib")
 endif()
 
+# Operating system defines (more reliable than ones created by the compiler)
+if (WIN32)
+    add_compile_definitions("SCP_PLATFORM_WINDOWS")
+elseif(UNIX AND NOT APPLE)
+    add_compile_definitions("SCP_PLATFORM_LINUX")
+elseif(APPLE)
+    add_compile_definitions("SCP_PLATFORM_MAC")
+endif()
+
 option(BUILD_SHARED_LIBS "Generated shared objects instead of archives" TRUE)
 
 include_directories(
@@ -22,5 +31,12 @@ include_directories(
 )
 
 add_library("${CMAKE_PROJECT_NAME}")
+
+# If we are creating a Windows DLL, make sure to define the macros for exporti-
+# ng sybmols
+if (WIN32 AND BUILD_SHARED_LIBS)
+    add_compile_definitions("SCP_DLL")
+    target_compile_definitions("SCP_BUILD_DLL")
+endif()
 
 add_subdirectory("src")
