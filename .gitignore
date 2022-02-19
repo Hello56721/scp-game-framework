@@ -52,4 +52,4 @@ Makefile
 build.ninja
 
 # Visual Studio Code user-specific configuration files
-.vscode/*
+.vscode
