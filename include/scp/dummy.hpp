@@ -3,6 +3,8 @@
 
 #pragma once
 
+#include <scp/macros.hpp>
+
 // This header contains nothing. It is merely used to set up the build system 
 // and project structure. It contains only one function, which is one that just
 // says hello.
@@ -11,7 +13,7 @@ namespace scp
 {
     namespace dummy_n
     {
-        void say_hello();
+        void SCPGF say_hello();
     }
 }
 
