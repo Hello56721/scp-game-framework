@@ -63,3 +63,4 @@ build.ninja
 *.recipe
 *.ilk
 *.pdb
+*.exp
