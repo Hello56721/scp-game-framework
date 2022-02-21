@@ -14,7 +14,7 @@ namespace scp
     // A simple class for displaying a window onto the screen. Currently uses 
     // GLFW as it's backend. As with all other classes, I will add features li-
     // ttle by little as I need them.
-    class window_t
+    class SCPGF window_t
     {
     public:
         // Initialize GLFW
