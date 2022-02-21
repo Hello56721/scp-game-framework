@@ -2,8 +2,6 @@
 
 int main()
 {
-    scp::window_t::init_glfw();
-    
     scp::window_t window(1280, 720, "SCP Game Framework Window Test");
     
     window.show();
