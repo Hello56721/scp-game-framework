@@ -17,9 +17,6 @@ namespace scp
     class SCPGF window_t
     {
     public:
-        // Initialize GLFW
-        static void init_glfw();
-        
         // The width and height are specified in pixels. The title is self-exp-
         // lanitory.
         window_t(uint16_t width, uint16_t height, std::string_view title);
@@ -43,12 +40,21 @@ namespace scp
         // GLFW.
         ~window_t();
         
-        // Terminate GLFW
-        static void terminate_glfw();
-        
     private:
         // Callbacks:
         // None, yet, but they will be added once the event system is in place.
+        
+        // Terminate GLFW
+        static void terminate_glfw();
+        
+        // Initialize GLFW
+        static void init_glfw();
+        
+        // The number of windows that exists.
+        static uint16_t reference_count;
+        
+        // Is GLFW already initialized?
+        static bool is_glfw_initialized;
         
         // The actual window handle.
         GLFWwindow* m_window;
