@@ -48,7 +48,17 @@ uint16_t window_t::get_height() const
     return m_height;
 }
 
+void window_t::poll_events()
+{
+    glfwPollEvents();
+}
+
 window_t::~window_t()
 {
     glfwDestroyWindow(m_window);
+}
+
+void window_t::terminate_glfw()
+{
+    glfwTerminate();
 }
