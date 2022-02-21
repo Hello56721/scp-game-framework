@@ -2,4 +2,5 @@ target_sources(
     "scp-game-framework" PRIVATE
     
     "dummy.cpp"
+    "window.cpp"
 )
