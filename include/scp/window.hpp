@@ -36,6 +36,9 @@ namespace scp
         // Returns the height of the window.
         uint16_t get_height() const;
         
+        // Poll events
+        static void poll_events();
+        
         // Note: destructor only destroys the window, but does not terminates 
         // GLFW.
         ~window_t();
