@@ -15,6 +15,7 @@ endif()
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib")
 set(CMAKE_BUILD_RPATH "$ORIGIN;$ORIGIN/../lib")
 set(CMAKE_INSTALL_RPATH "$ORIGIN;$ORIGIN/../lib")
+set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 
 if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
     add_compile_options("-fdiagnostics-absolute-paths")
@@ -24,9 +25,13 @@ if (BUILD_SHARED_LIBS AND WIN32)
     add_compile_definitions("SCP_DLL")
 endif()
 
-include_directories("${CMAKE_SOURCE_DIR}/include")
+find_package("GLFW")
+
+include_directories("${CMAKE_SOURCE_DIR}/include" "${GLFW_INCLUDE_DIR}")
 
 add_library("scp-game-framework")
+
+target_link_libraries("scp-game-framework" "GLFW::GLFW")
 
 if (BUILD_SHARED_LIBS AND WIN32)
     target_compile_definitions("scp-game-framework" PRIVATE "SCP_BUILD_DLL")
